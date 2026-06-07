@@ -1,0 +1,22 @@
+1. Child Process - fork()
+  fork() creates a copy of the current process called a child process. 
+  After fork(), both parent and child run the same code but have different PIDs. 
+  The return value tells them apart — fork() returns 0 to the child and the child's PID to the parent. They run independently after the split.
+
+2. Handling Common Signals
+  Signals are notifications sent to a process when something happens (Ctrl+C, kill command, etc.). 
+  Common ones are SIGINT (interrupt), SIGTERM (terminate), SIGSEGV (segfault), SIGKILL (force kill).
+
+3. Kernel Crashes
+  A kernel crash (panic) happens when the OS hits an unrecoverable error and stops to prevent further damage. 
+  Common causes are null pointer dereference, stack overflow, hardware failure, or a buggy driver. 
+  Unlike user-space crashes, a kernel crash brings down the entire system.
+
+4. Time Complexity
+  Time complexity measures how the runtime of a program grows as input size increases. 
+  It is expressed using Big-O notation like O(1), O(n), O(n²).
+
+5. Locking Mechanism - Mutex / Spinlock
+  When multiple threads access shared data at the same time, it causes a race condition. 
+  A mutex makes a thread wait (sleep) until the lock is free — good for long waits. Mutex is preferred in most user-space programs.
+  A spinlock keeps the thread busy-waiting in a loop checking the lock — good for very short waits. Spinlock is used in kernel code where sleeping is not allowed.
